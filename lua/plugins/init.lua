@@ -12,6 +12,28 @@ return {
       require "configs.lspconfig"
     end,
   },
+  {
+    "folke/which-key.nvim",
+    lazy = false,
+  },
+  {
+    "vim-skk/skkeleton",
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+    config = function()
+      vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-toggle)")
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "skkeleton-initialize-pre",
+        callback = function()
+          vim.fn["skkeleton#config"]({
+            globalDictionaries = { vim.fn.expand("~/.skk/SKK-JISYO.L") },
+          })
+        end,
+      })
+    end,
+  },
+
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
