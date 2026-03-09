@@ -21,6 +21,7 @@ return {
     dependencies = {
       "vim-denops/denops.vim",
     },
+    lazy = false,
     config = function()
       vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-toggle)")
       vim.api.nvim_create_autocmd("User", {
