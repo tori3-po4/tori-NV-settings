@@ -34,6 +34,51 @@ return {
       })
     end,
   },
+ {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "texlab",
+        "latexindent",
+      },
+    },
+  },
+
+  -- vimtex（コンパイル・SyncTeX・構文ハイライト）
+  {
+    "lervag/vimtex",
+    lazy = false,
+    config = function()
+      vim.g.vimtex_view_method = "skim"
+
+      -- エンジン定義（マジックコメントで自動選択）
+      vim.g.vimtex_compiler_latexmk_engines = {
+        _        = "-lualatex",   -- デフォルト
+        lualatex = "-lualatex",
+        pdflatex = "-pdf",
+        platex   = "-platex",
+        uplatex  = "-uplatex",
+        xelatex  = "-xelatex",
+      }
+
+      vim.g.vimtex_compiler_latexmk = {
+        aux_dir    = ".aux",
+        out_dir    = ".out",
+        callback   = 1,
+        continuous = 1,
+        executable = "latexmk",
+        options    = {
+          "-verbose",
+          "-file-line-error",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+        },
+      }
+
+      vim.g.vimtex_syntax_enabled = 1
+      vim.g.vimtex_quickfix_mode  = 0
+    end,
+  },
 
 
   -- test new blink
