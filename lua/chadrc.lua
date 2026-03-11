@@ -21,4 +21,23 @@ M.base46 = {
 --      }
 -- }
 
+M.ui = {
+  statusline = {
+   order ={"mode", "file" , "git" , "skk" , "%=" , "lsp_msg" ,"%=", "diagnostics" , "lsp" , "cwd"},
+      modules = {
+        skk = function()
+          local ok,mode = pcall(vim.fn["skkeleton#mode"])
+          if not ok then return ""end
+          if mode == "hira" then
+            return "%#StText# かな "
+          elseif mode == "kata" then
+            return "%#StText# カナ "
+          else
+            return ""
+          end
+        end,
+      },
+   }
+}
+
 return M
