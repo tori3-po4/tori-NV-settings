@@ -11,6 +11,9 @@ vim.lsp.config("texlab", {
       },
       chktex = { onOpenAndSave = false },
     },
+    diagnostics = {
+        ignoredPatterns = { ".*" },  -- texlab 独自診断も抑制
+      },
   },
 })
 
