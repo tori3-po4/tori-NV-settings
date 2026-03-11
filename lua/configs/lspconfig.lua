@@ -7,20 +7,9 @@ vim.lsp.config("texlab", {
   settings = {
     texlab = {
       build = {
-        executable = "latexmk",
-        args = {
-          "-synctex=1",
-          "-interaction=nonstopmode",
-          "-file-line-error",
-          "%f",
-        },
-        onSave = true,
+        onSave = false,
       },
-      forwardSearch = {
-        executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
-        args = { "%l", "%p", "%f" },
-      },
-      chktex = { onOpenAndSave = true },
+      chktex = { onOpenAndSave = false },
     },
   },
 })
