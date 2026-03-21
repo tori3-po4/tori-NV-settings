@@ -81,6 +81,22 @@ return {
   },
 
 
+  {
+    "Julian/lean.nvim",
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+    dependencies = {
+      'andymass/vim-matchup',
+      'andrewradev/switch.vim',
+      'tomtom/tcomment_vim',
+
+    },
+
+    ---@type lean.config
+    opts = {
+      mapping = true,
+    }
+  }
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
