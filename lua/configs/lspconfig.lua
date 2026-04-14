@@ -3,6 +3,12 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = { "html", "cssls", "texlab", "ocamllsp" }
 vim.lsp.enable(servers)
 
+vim.lsp.config("ocamllsp", {
+  root_dir = function(bufnr, on_dir)
+    on_dir(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":p:h"))
+  end,
+})
+
 vim.lsp.config("texlab", {
   settings = {
     texlab = {
