@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls","texlab" }
+local servers = { "html", "cssls", "texlab", "ocamllsp" }
 vim.lsp.enable(servers)
 
 vim.lsp.config("texlab", {
