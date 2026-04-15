@@ -24,6 +24,7 @@ return {
     lazy = false,
     config = function()
       vim.keymap.set({ "i", "c" }, "<C-/>", "<Plug>(skkeleton-toggle)")
+      vim.keymap.set({ "i", "c" }, "<C-_>", "<Plug>(skkeleton-toggle)", { remap = true })
       vim.api.nvim_create_autocmd("User", {
         pattern = "skkeleton-initialize-pre",
         callback = function()
