@@ -39,7 +39,7 @@ return {
     opts = {
       ensure_installed = {
         "texlab",
-        "latexindent",
+        "tex-fmt",
       },
     },
   },
