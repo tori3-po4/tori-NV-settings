@@ -28,4 +28,8 @@ map("n", "<leader>te", function()
   end)
 end, { desc = "Switch LaTeX engine" })
 
+map("n", "<leader>or", function()
+  vim.cmd("vsplit | terminal utop")
+end, { desc = "Open OCaml REPL (utop)" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
