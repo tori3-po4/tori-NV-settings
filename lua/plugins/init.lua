@@ -78,6 +78,20 @@ return {
 
       vim.g.vimtex_syntax_enabled = 1
       vim.g.vimtex_quickfix_mode  = 2
+
+      -- tex ファイルで \\ を打つとき補完メニューを閉じる
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "tex",
+        callback = function()
+          vim.keymap.set("i", "\\\\", function()
+            local cmp_ok, cmp = pcall(require, "cmp")
+            if cmp_ok and cmp.visible() then
+              cmp.abort()
+            end
+            return "\\\\"
+          end, { buffer = true, expr = true })
+        end,
+      })
     end,
   },
 
