@@ -37,12 +37,7 @@ return {
   },
  {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "texlab",
-        "tex-fmt",
-      },
-    },
+    enabled = false,  -- LSPs/formatters は Nix (home.packages) で管理
   },
 
   -- vimtex（コンパイル・SyncTeX・構文ハイライト）
